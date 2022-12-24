@@ -1,0 +1,23 @@
+﻿<Window x:Class="udp_chat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:udp_chat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="246" Width="481"
+        Closing="Window_Closing">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Click="JoinMenuItemClick" Header="Join"></MenuItem>
+            <MenuItem Click="LeaveMenuItemClick" Header="Leave"></MenuItem>
+        </Menu>
+        <DockPanel Margin="5,0,5,5" DockPanel.Dock="Bottom">
+            <Label DockPanel.Dock="Left">Message:</Label>
+            <Button Padding="10,5" DockPanel.Dock="Right" Click="SendBtnClick">Send</Button>
+            <TextBox x:Name="msgTextBox" VerticalContentAlignment="Center" Padding="4,0" Margin="5,0">Hello! How are you?</TextBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Top" Margin="5,5,5,0" TextAlignment="Center">Chat History</TextBlock>
+        <ListBox x:Name="historyList" Margin="5"></ListBox>
+    </DockPanel>
+</Window>
