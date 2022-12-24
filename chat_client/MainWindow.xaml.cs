@@ -40,10 +40,18 @@ namespace udp_chat
         {
             while (isListening)
             {
-                var result = await client.ReceiveAsync();
-                string message = Encoding.UTF8.GetString(result.Buffer);
+                try
+                {
+                    var result = await client.ReceiveAsync();
+                    string message = Encoding.UTF8.GetString(result.Buffer);
 
-                historyList.Items.Add(message);
+                    historyList.Items.Add(message);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
         }
         private async void SendMessage(string message)

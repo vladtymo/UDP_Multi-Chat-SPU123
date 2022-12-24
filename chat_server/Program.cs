@@ -12,10 +12,10 @@ namespace ChatServer
         private List<string> history = new List<string>();
         private HashSet<IPEndPoint> members = new HashSet<IPEndPoint>();
 
-        public ChatServer(string host, short port)
+        public ChatServer(short port)
         {
-            IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Parse(host), port);
-            server = new UdpClient(serverEndPoint);
+            //IPEndPoint serverEndPoint = new IPEndPoint(IPAddress.Parse(ip), port);
+            server = new UdpClient(port);
         }
 
         public void SendMessage(string message)
@@ -71,7 +71,7 @@ namespace ChatServer
     {
         static void Main(string[] args)
         {
-            ChatServer server = new ChatServer("127.0.0.1", 3344);
+            ChatServer server = new ChatServer(3344);
             server.Start();
         }
     }
